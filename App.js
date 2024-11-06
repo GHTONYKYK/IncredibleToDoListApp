@@ -7,9 +7,14 @@ import ToDoForm from "./ToDoForm";
 const App = () => {
   const [tasks, setTasks] = useState(["Do laundry", "Go to gym", "Walk dog"]);
 
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  };
+
   return (
     <View style={styles.container}>
       <ToDoList tasks={tasks} />
+      <ToDoForm addTask={addTask} />
       <StatusBar style="auto" />
     </View>
   );
@@ -23,6 +28,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
   },
 });
